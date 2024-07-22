@@ -7,15 +7,7 @@ comments: true
 
 # Introduction
 
-We present two image segmentation algorithms: (1) a low Qbit, high error circuit, and (2) a high Qbit, low error circuit. 
-Both algorithms are based on the same Hamiltonian, but the representation of the Hamiltonian uses a different number of Qbits. 
-For circuit (1), we encode information from an image with a (relatively) low number of Qbits and processing the information from the image requires a (relatively) high number of 2-control gates, leading to a high error when implemented on a *real* NISQ quantum computer.  
-In particular, circuit (1) requires $$\log_2(N) + \log_2(M)$$ Qbits for an $$N\times M$$-pixel image. 
-For circuit (2), we encode the information from an image with a (relatively) high number of Qbits and processing the information from the information from the image requires a (relatively) low number of 2-control gate, leading to a low error when implemented on a *real* NISQ quantum computer. 
-In particular, circuit (2) requires $$N\times M$$ Qbits for an $$N\times M$$-pixel image. 
-The number of 2-control gates in this case is $$2(2N M - N -M)$$. 
-We don't have an exact formula for the number of 2-control gates in the case of circuit (1). 
-For a $$4\times4$$-pixel image, circuit (1) requires 162 2-control gates, after optimizing the circuit using the BQSKit software, and circuit (2) requires 48 2-control gates.
+We present two image segmentation algorithms: (1) a low Qbit, high error circuit, and (2) a high Qbit, low error circuit. Both algorithms are based on the same Hamiltonian, but the representation of the Hamiltonian uses a different number of Qbits. For circuit (1), we encode information from an image with a (relatively) low number of Qbits and processing the information from the image requires a (relatively) high number of 2-control gates, leading to a high error when implemented on a *real* NISQ quantum computer. In particular, circuit (1) requires $$\log_2(N) + \log_2(M)$$ Qbits for an $$N\times M$$-pixel image. For circuit (2), we encode the information from an image with a (relatively) high number of Qbits and processing the information from the information from the image requires a (relatively) low number of 2-control gate, leading to a low error when implemented on a *real* NISQ quantum computer. In particular, circuit (2) requires $$N\times M$$ Qbits for an $$N\times M$$-pixel image. The number of 2-control gates in this case is $$2(2N M - N -M)$$. We don't have an exact formula for the number of 2-control gates in the case of circuit (1). For a $$4\times4$$-pixel image, circuit (1) requires 162 2-control gates, after optimizing the circuit using the BQSKit software, and circuit (2) requires 48 2-control gates.
 
 The Qbits represent the location of pixels of the image. The image (i.e.~the color of the pixels) is represented by the circuit.  
 
@@ -41,11 +33,11 @@ Further discussion on the following topics:
 - [Axel Saenz Rodiguez](https://sites.google.com/view/axelsaenz){:target="_blank"}, Assitant Professor, Math, Oregon State University
 - Ngoc Ha, PhD Student, Statistics, Oregon State University
 - Fernando Angulo Barba, Undergraduate Student, Oregon State University
-- [Talita Periciano](https://tperciano.wixsite.com/home), Research Scientist, Lawrence Berkeley National Laboratory
-- [Roel Van Beeumen](http://www.roelvanbeeumen.be/drupal8/), Research Scientist, Lawrence Berkeley National Laboratory
-- [Daan Camps](https://campsd.github.io/), Researcher/Staff, Lawrence Berkeley National Laboratory
+- [Talita Periciano](https://tperciano.wixsite.com/home){:target="_blank"}, Research Scientist, Lawrence Berkeley National Laboratory
+- [Roel Van Beeumen](http://www.roelvanbeeumen.be/drupal8/){:target="_blank"}, Research Scientist, Lawrence Berkeley National Laboratory
+- [Daan Camps](https://campsd.github.io/){:target="_blank"}, Researcher/Staff, Lawrence Berkeley National Laboratory
 
-
+<!---
 # Funding 
 
 This project is funded by Oregon State University
@@ -55,6 +47,7 @@ A. Saezn Rodriguez and N. Elsasser were funded through the [Research and Innovat
 C. Lee, M. Spears, and C. Chaing were funded through the [URSA Engage Program 2023-2024](https://academicaffairs.oregonstate.edu/research/ursa-engage)
 
 M. Faks and A. Zaidan were funded through the [URSA Engage Program 2022-2023](https://academicaffairs.oregonstate.edu/research/ursa-engage)
+--->
 
 
 
