@@ -38,7 +38,7 @@ Further discussion on the following topics:
 
 
 # Team
-- [Axel Saenz Rodiguez](https://sites.google.com/view/axelsaenz), Assitant Professor, Math, Oregon State University
+- [Axel Saenz Rodiguez](https://sites.google.com/view/axelsaenz){:target="_blank"}, Assitant Professor, Math, Oregon State University
 - Ngoc Ha, PhD Student, Statistics, Oregon State University
 - Fernando Angulo Barba, Undergraduate Student, Oregon State University
 - [Talita Periciano](https://tperciano.wixsite.com/home), Research Scientist, Lawrence Berkeley National Laboratory
