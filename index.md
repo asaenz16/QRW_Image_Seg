@@ -15,7 +15,27 @@ Below, you may find blog posts detailng some of out progress as we prepare our r
 
 ## Background: Quantum Spin Chains
 
+The image segmentation algorithm is inspired by inhomogeneous quantum spin chains, which are very well studied in solid state physics. A good and comprehensive introduction to quantum spin chains may be found in teh following textbook: [An Introduction to Quantum Spin Systems by Parkinson and Farnell](https://link.springer.com/book/10.1007/978-3-642-13290-2){:target="_blank"} . Briefly, a *quantum spin chain* is given as follows:
 
+1. the *state space* is given by the tensor product over a lattice $$\Lambda$$,
+$$
+\mathbb{H}_{\Lambda} = \bigotimes_{\Lambda} \mathbb{C}^{2S+1},
+$$
+where $$S \in \tfrac{1}{2}\mathbb{Z}_{\geq 1}$$ is the \emph{spin parameter} for the quantum spin chain. (Typically, one considers the lattices $$\Lambda = \mathbb{Z}^{d}, \left(\mathbb{Z}/ L\mathbb{Z} \right)^{d}$$ for some dimension $$d >0$$ and some period $$L>0$$. We focus on the lattice $$\Lambda = \mathbb{Z}/L\mathbb{Z}, \{(i,j)| 1 \leq i \leq N, 1\leq j \leq M\}$$.)
+2. there is class of *spin operators*:
+$$
+S^{x}_{i} \cdot S^{x}_{j}, \quad S^{y}_{i} \cdot S^{x}_{j}, \quad S^{z}_{i} \cdot S^{z}_{j},
+$$
+so that the operators $$S_k^{x},S_k^{y}, S_k^{z}$$ are given by (constant multiples) of the Pauli operators, acting on the $$k \in \Lambda$$ copy of $$\mathbb{C}^{2S+1}$$ in $$\mathbb{H}_{\Lambda}$$.
+3.the \emph{Hamiltonian} is given by a sum of local operators,
+$$
+H = \sum_{i, j \in \Lambda} h_{i,j}
+$$
+with the local operators given by
+$$
+h_{i,j} = J^x_{i,j}\, S^{x}_{i} \cdot S^{x}_{j} + J^y_{i, j}\, S^{y}_{i} \cdot S^{x}_{j} + J^z_{i,j}\, \left( S^{z}_{i} \cdot S^{z}_{j} - 1/2\right)
+$$
+where the parameters $J^x_{i,j}, J^y_{i,j}, J^z_{i,j} \in \mathbb{R}$ are referred as the \emph{strength} or \emph{weight} parameters of the corresponding local operator, with bounded support (i.e.~$J^x_{i,j}, J^y_{i,j}, J^z_{i,j} = 0$ if $\vert i-j \vert >R$ for some $R>0$).
 
 ## Objective: Image Segmentation
 
