@@ -13,7 +13,7 @@ The Qbits represent the location of pixels of the image. The image (i.e.~the col
 
 ## Objective: Image Segmentation
 
-In the image segmentation algorithm, our initial data is an image with some labelled pixel and the goal is to label the rest of the pixels with a labels from the originally labeled pixels. After labeling, pixels with the same label are said to belong to the same *segment*. The pixels not initially labeled are labelled based on a wave function, $$|\Psi(t) \rangle$$ that evolves under a quantum spin Hamiltonian determined by the image with the initial condition of the wave function determined by the initially labelled pixels.
+In the image segmentation algorithm, our initial data is an image with some labelled pixel and the goal is to label the rest of the pixels with a labels from the originally labeled pixels. After labeling, pixels with the same label are said to belong to the same *segment*. The pixels not initially labeled are labelled based on a wave function,  that evolves under a quantum spin Hamiltonian determined by the image with the initial condition of the wave function determined by the initially labelled pixels.
 
 Below, you may find blog posts detailng some of out progress as we prepare our results for publication. Feel free to leave comments on the posts.
 
