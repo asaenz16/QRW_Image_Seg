@@ -13,7 +13,7 @@ The Qbits represent the location of pixels of the image. The image (i.e.~the col
 
 ## Objective: Image Segmentation
 
-In the image segmentation algorithm, our initial data is an image with some labelled pixel and the goal is to label the rest of the pixels with a labels from the originally labeled pixels. After labeling, pixels with the same label are said to belong to the same *segment*. The pixels not initially labeled are labelled based on a wave function,  that evolves under a quantum spin Hamiltonian determined by the image with the initial condition of the wave function determined by the initially labelled pixels.
+In the image segmentation algorithm, our initial data is an image with some labelled pixel and the goal is to label the rest of the pixels with a labels from the originally labeled pixels. After labeling, pixels with the same label are said to belong to the same *segment*. The pixels not initially labeled are labelled based on a wave function, $$|\Psi(t) \rangle$$, that evolves under a quantum spin Hamiltonian determined by the image with the initial condition of the wave function determined by the initially labelled pixels.
 
 Below, you may find blog posts detailng some of out progress as we prepare our results for publication. Feel free to leave comments on the posts.
 
@@ -63,7 +63,7 @@ $$
 p(l) := \{i_1, i_2, \dots, i_{s(l)}\} \subseteq \Lambda_0
 $$
 
-for each $l \in [L]$.
+for each $$l \in [L]$$.
 
 We use the color map to define a collection of strength parameters:
 
@@ -71,7 +71,7 @@ $$
 J_{i,j}(\mathcal{I}) :=  \Vert c(i) - c(j)\Vert
 $$
 
-for $$i, j \in \Lambda$ with $\vert i - j \vert =1$$. This leads to the Hamiltonian $$H_{\mathcal{I}}$$, given as in the previous section with
+for $$i, j \in \Lambda$$ with $$\vert i - j \vert =1$$. This leads to the Hamiltonian $$H_{\mathcal{I}}$$, given as in the previous section with
 
 $$
 J_{i,j}^{z} = \Delta, \quad J_{i,j}^{x}= J_{i,j}^{y} = \begin{cases}J_{i,j}(\mathcal{I}), &\quad \vert i-j\vert = 1 \\ 0, &\quad \vert i-j\vert \neq 1\end{cases}
