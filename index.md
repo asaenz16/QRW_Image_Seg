@@ -106,7 +106,7 @@ $$
 P_{t}(i,j)=\mathbb{P}\big(|\Psi_i(t) \rangle = | j \rangle\big) = \left| \langle j| \Psi_i(t)\rangle \right|^2, \quad i \in \Lambda_0, \, j \in \Lambda
 $$
 
-where $$\langle j \vert \Psi_i(t)\rangle$$ is the dot product -- the dot product is completely determinde by the orthonormal basis given above, which is a standard fact from linear algebra -- of the states $$\vert \Psi_i(t)\rangle,| j\rangle \in \mathbb{H}_{\Lambda}$$. Then, we propose to label a pixel $$j \in \Lambda$$ with the label $$l \in [L]$$ if $$P_{t}(i_0, j)$$ is maximal (over a time average) for all seed pixels $$i \in \Lambda_0$$ and $$c(i_0) = l$$. More precisely, we extend the label map as follows:
+where $$\langle j \vert \Psi_i(t)\rangle$$ is the dot product -- the dot product is completely determinde by the orthonormal basis given above, which is a standard fact from linear algebra -- of the states $$\vert \Psi_i(t)\rangle,\vert j\rangle \in \mathbb{H}_{\Lambda}$$. Then, we propose to label a pixel $$j \in \Lambda$$ with the label $$l \in [L]$$ if $$P_{t}(i_0, j)$$ is maximal (over a time average) for all seed pixels $$i \in \Lambda_0$$ and $$c(i_0) = l$$. More precisely, we extend the label map as follows:
 
 $$
 \ell(j) = \ell \left( \arg\, \max_{ i \in \Lambda_0} \left(\lim_{T \rightarrow \infty}\frac{1}{T} \sum_{t=1}^T P_t(i, j) \right)  \right).
