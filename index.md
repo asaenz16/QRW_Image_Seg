@@ -83,11 +83,11 @@ $$
 | i_1, i_2, \dots, i_m \rangle, \quad m=1, 2, \dots
 $$
 
-and the vacuum state $$| \emptyset \rangle$$. We consider the following collection of Schrodinger equations
+and the vacuum state $$\vert \emptyset \rangle$$. We consider the following collection of Schrodinger equations
 
 $$
 \begin{cases}
-  \iota \hbar \frac{d }{dt}|\Psi_i(t) \rangle = H_{\mathcal{I}} |\Psi_i(t) \rangle,\\
+  \iota \hbar \frac{d }{dt}\vert \Psi_i(t) \rangle = H_{\mathcal{I}} |\Psi_i(t) \rangle,\\
   |\Psi_i(0)\rangle = |i \rangle
 \end{cases}
 $$
@@ -106,7 +106,7 @@ $$
 P_{t}(i,j)=\mathbb{P}\big(|\Psi_i(t) \rangle = | j \rangle\big) = \left| \langle j| \Psi_i(t)\rangle \right|^2, \quad i \in \Lambda_0, \, j \in \Lambda
 $$
 
-where $$\langle j| \Psi_i(t)\rangle$$ is the dot product -- the dot product is completely determinde by the orthonormal basis given above, which is a standard fact from linear algebra -- of the states $$| \Psi_i(t)\rangle,| j\rangle \in \mathbb{H}_{\Lambda}$$. Then, we propose to label a pixel $$j \in \Lambda$$ with the label $$l \in [L]$$ if $$P_{t}(i_0, j)$$ is maximal (over a time average) for all seed pixels $$i \in \Lambda_0$$ and $$c(i_0) = l$$. More precisely, we extend the label map as follows:
+where $$\langle j \vert \Psi_i(t)\rangle$$ is the dot product -- the dot product is completely determinde by the orthonormal basis given above, which is a standard fact from linear algebra -- of the states $$| \Psi_i(t)\rangle,| j\rangle \in \mathbb{H}_{\Lambda}$$. Then, we propose to label a pixel $$j \in \Lambda$$ with the label $$l \in [L]$$ if $$P_{t}(i_0, j)$$ is maximal (over a time average) for all seed pixels $$i \in \Lambda_0$$ and $$c(i_0) = l$$. More precisely, we extend the label map as follows:
 
 $$
 \ell(j) = \ell \left( \arg\, \max_{ i \in \Lambda_0} \left(\lim_{T \rightarrow \infty}\frac{1}{T} \sum_{t=1}^T P_t(i, j) \right)  \right).
