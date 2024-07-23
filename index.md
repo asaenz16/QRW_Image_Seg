@@ -27,7 +27,7 @@ $$
 S^{x}_{i} \cdot S^{x}_{j}, \quad S^{y}_{i} \cdot S^{x}_{j}, \quad S^{z}_{i} \cdot S^{z}_{j},
 $$
 so that the operators $$S_k^{x},S_k^{y}, S_k^{z}$$ are given by (constant multiples) of the Pauli operators, acting on the $$k \in \Lambda$$ copy of $$\mathbb{C}^{2S+1}$$ in $$\mathbb{H}_{\Lambda}$$.
-3.the \emph{Hamiltonian} is given by a sum of local operators,
+3. the *Hamiltonian* is given by a sum of local operators,
 $$
 H = \sum_{i, j \in \Lambda} h_{i,j}
 $$
@@ -35,7 +35,9 @@ with the local operators given by
 $$
 h_{i,j} = J^x_{i,j}\, S^{x}_{i} \cdot S^{x}_{j} + J^y_{i, j}\, S^{y}_{i} \cdot S^{x}_{j} + J^z_{i,j}\, \left( S^{z}_{i} \cdot S^{z}_{j} - 1/2\right)
 $$
-where the parameters $J^x_{i,j}, J^y_{i,j}, J^z_{i,j} \in \mathbb{R}$ are referred as the \emph{strength} or \emph{weight} parameters of the corresponding local operator, with bounded support (i.e.~$J^x_{i,j}, J^y_{i,j}, J^z_{i,j} = 0$ if $\vert i-j \vert >R$ for some $R>0$).
+where the parameters $$J^x_{i,j}, J^y_{i,j}, J^z_{i,j} \in \mathbb{R}$$ are referred as the *strength* or *weight* parameters of the corresponding local operator, with bounded support (i.e. $$J^x_{i,j}, J^y_{i,j}, J^z_{i,j} = 0$$ if $$\vert i-j \vert >R$$ for some $$R>0$$).
+
+There is an exact and analytical treatment for one-dimension spin chain and, for higher dimensions, spin chains are very well-understood through observations from experiments and simulations. We consider inhomogeneous quantum spin chains so that the strength parameters $$J^x_{i,j}, J^y_{i,j}, J^z_{i,j}$$ are inhomogeneous. Typically, quantum spin chains in simulations are not inhomogeneous since the strength parameters have some type of symmetry, such as translation invariance. We interpret the spin of a particle as a *color* from the set $$\{1, 2, \cdots, dim(S)\}$$. For $$S = 1/2$$, the colors are $$\{1,2\}$$ with multiple common identifications, e.g. spin-up and spin-down particles, occupied or vacant position, heads or tail.
 
 ## Objective: Image Segmentation
 
