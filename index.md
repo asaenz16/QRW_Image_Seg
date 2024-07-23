@@ -5,11 +5,15 @@ comments: true
 
 <link rel="alternate" type="application/rss+xml" href="{{ site.url }}/feed.xml">
 
-# Introduction
+## Introduction
 
 We present two image segmentation algorithms: (1) a low Qbit, high error circuit, and (2) a high Qbit, low error circuit. Both algorithms are based on the same Hamiltonian, but the representation of the Hamiltonian uses a different number of Qbits. For circuit (1), we encode information from an image with a (relatively) low number of Qbits and processing the information from the image requires a (relatively) high number of 2-control gates, leading to a high error when implemented on a *real* NISQ quantum computer. In particular, circuit (1) requires $$\log_2(N) + \log_2(M)$$ Qbits for an $$N\times M$$-pixel image. For circuit (2), we encode the information from an image with a (relatively) high number of Qbits and processing the information from the information from the image requires a (relatively) low number of 2-control gate, leading to a low error when implemented on a *real* NISQ quantum computer. In particular, circuit (2) requires $$N\times M$$ Qbits for an $$N\times M$$-pixel image. The number of 2-control gates in this case is $$2(2N M - N -M)$$. We don't have an exact formula for the number of 2-control gates in the case of circuit (1). For a $$4\times4$$-pixel image, circuit (1) requires 162 2-control gates, after optimizing the circuit using the BQSKit software, and circuit (2) requires 48 2-control gates.
 
 The Qbits represent the location of pixels of the image. The image (i.e.~the color of the pixels) is represented by the circuit.  
+
+## Objective: Image Segmentation
+
+In the image segmentation algorithm, our initial data is an image with some labelled pixel and the goal is to label the rest of the pixels with a labels from the originally labeled pixels. After labeling, pixels with the same label are said to belong to the same *segment*. The pixels not initially labeled are labelled based on a wave function, $$|\Psi_{}(t) \rangle$$ that evolves under a quantum spin Hamiltonian determined by the image with the initial condition of the wave function determined by the initially labelled pixels.
 
 Below, you may find blog posts detailng some of out progress as we prepare our results for publication. Feel free to leave comments on the posts.
 
@@ -39,7 +43,78 @@ where the parameters $$J^x_{i,j}, J^y_{i,j}, J^z_{i,j} \in \mathbb{R}$$ are refe
 
 There is an exact and analytical treatment for one-dimension spin chain and, for higher dimensions, spin chains are very well-understood through observations from experiments and simulations. We consider inhomogeneous quantum spin chains so that the strength parameters $$J^x_{i,j}, J^y_{i,j}, J^z_{i,j}$$ are inhomogeneous. Typically, quantum spin chains in simulations are not inhomogeneous since the strength parameters have some type of symmetry, such as translation invariance. We interpret the spin of a particle as a *color* from the set $$\{1, 2, \cdots, dim(S)\}$$. For $$S = 1/2$$, the colors are $$\{1,2\}$$ with multiple common identifications, e.g. spin-up and spin-down particles, occupied or vacant position, heads or tail.
 
-## Objective: Image Segmentation
+## Strategy: Quantum Algorithm
+
+Let us denote an *image*, $$\mathcal{I} = (\Lambda, c)$$, as a lattice with a *color map*,
+
+$$
+c: \Lambda \rightarrow [0,1]^3.
+$$
+
+The three coordinates of the color map represent the *Red-Green-Blue(RGB)* composition of the color. Also, we introduce the a (partial/intial) *labelling* of some subset of seed pixels, meaning a (partial/initial) label function
+
+$$
+\ell: \Lambda_0 \rightarrow [L] , \quad L \geq 1
+$$
+
+where $$\Lambda_0 \subset \Lambda$$ is the set of *seed* pixels and $$[L] := \{1, 2, \dots, L\}$$ is the set of *labels*. We denote the pre-image of each label by
+
+$$
+p(l) := \{i_1, i_2, \dots, i_{s(l)}\} \subseteq \Lambda_0
+$$
+
+for each $l \in [L]$.
+
+We use the color map to define a collection of strength parameters:
+
+$$
+J_{i,j}(\mathcal{I}) :=  \Vert c(i) - c(j)\Vert
+$$
+
+for $$i, j \in \Lambda$ with $\vert i - j \vert =1$$. This leads to the Hamiltonian $$H_{\mathcal{I}}$$, given as in the previous section with
+
+$$
+J_{i,j}^{z} = \Delta, \quad J_{i,j}^{x}= J_{i,j}^{y} = \begin{cases}J_{i,j}(\mathcal{I}), &\quad \vert i-j\vert = 1 \\ 0, &\quad \vert i-j\vert \neq 1\end{cases}
+$$
+
+where $$\Delta \in \mathbb{R}$$ is an anisotropy parameter. For a $$S = \tfrac{1}{2}$$-spin chain, a particular orthonormal basis is given by the location of the up-spin particles,
+
+$$
+| i_1, i_2, \dots, i_m \rangle, \quad m=1, 2, \dots
+$$
+
+and the vacuum state $$| \emptyset \rangle$$. We consider the following collection of Schrodinger equations
+
+$$
+\begin{cases}
+  \iota \hbar \frac{d }{dt}|\Psi_i(t) \rangle = H_{\mathcal{I}} |\Psi_i(t) \rangle,\\
+  |\Psi_i(0)\rangle = |i \rangle
+\end{cases}
+$$
+
+for all $$i \in \Lambda_0$$.
+
+The goal of the image segmentation algorithm is to extend the label function, from the seed pixels $$\ell : \Lambda_0 \rightarrow [L]$$, to the entire lattice 
+
+$$
+\ell: \Lambda  \rightarrow [L].
+$$
+
+We propose to label a pixel based on the occupation probabilities from the collection of Schrodinger equations above. The probability of finding an up-spin particle at site $$i \in \Lambda$$ at time $$t \geq 0$$ is given by
+
+$$
+P_{t}(i,j)=\mathbb{P}\big(|\Psi_i(t) \rangle = | j \rangle\big) = \left| \langle j| \Psi_i(t)\rangle \right|^2, \quad i \in \Lambda_0, \, j \in \Lambda
+$$
+
+where $$\langle j| \Psi_i(t)\rangle$$ is the dot product -- the dot product is completely determinde by the orthonormal basis given above, which is a standard fact from linear algebra -- of the states $$| \Psi_i(t)\rangle,| j\rangle \in \mathbb{H}_{\Lambda}$$. Then, we propose to label a pixel $$j \in \Lambda$$ with the label $$l \in [L]$$ if $$P_{t}(i_0, j)$$ is maximal (over a time average) for all seed pixels $$i \in \Lambda_0$$ and $$c(i_0) = l$$. More precisely, we extend the label map as follows:
+
+$$
+\ell(j) = \ell \left( \arg\, \max_{ i \in \Lambda_0} \left(\lim_{T \rightarrow \infty}\frac{1}{T} \sum_{t=1}^T P_t(i, j) \right)  \right).
+$$
+
+## Remark: Classical vs Quantum
+
+The classical version of the this image segmentation algorithm replace the probabilities $$P_t(i,j)$$, given above, by the transition probabilities of a random walk where the one-step transition probabilities are given by a Markov matrix determined, similarly, by the local difference of the colors in the image. We thus refer to our algorithm as a *quantum random walk* algorithm where the position of the up-spin particle is the location of the quantum random walker. The quantum advantage lies in the speed of the random walker. In the classical case, the distance travel by a random walker in $$t$$ steps is proportional to $$\sqrt{t}$$, due to the central limit theorem in probability. In the quantum case, the distance travel by a random walker in $$t$$ steps is proportional to $$t$$, which we may show. Thus, we expect the limit in the previous equation to stabilize faster in quantum case than in the classical case, leading to a (potentially) faster implementation. In short, quantum random walkers explore space faster than their classical counterparts, leading to quadratic speedup.
 
 <!---
 # See
