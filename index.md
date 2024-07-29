@@ -127,9 +127,9 @@ Further discussion on the following topics:
 
 
 # Team
-- [Axel Saenz Rodiguez](https://sites.google.com/view/axelsaenz){:target="_blank"}, Assitant Professor, Math, Oregon State University
+- [Axel Saenz Rodriguez](https://sites.google.com/view/axelsaenz){:target="_blank"}, Assistant Professor, Math, Oregon State University
 - [Ngoc Ha](https://scholar.google.com/citations?user=IxMZCA4AAAAJ&hl=en){:target="_blank"}, PhD Student, Statistics, Oregon State University
-- [Fernando Angulo Barba](https://sites.google.com/view/nandomath/home){:target="_blank"}, Undergraduate Student, Oregon State University
+- [Fernando Angulo Barba](https://sites.google.com/view/nandomath/home){:target="_blank"}, PhD Student, Oregon State University
 - [Talita Periciano](https://tperciano.wixsite.com/home){:target="_blank"}, Research Scientist, Lawrence Berkeley National Laboratory
 - [Roel Van Beeumen](http://www.roelvanbeeumen.be/drupal8/){:target="_blank"}, Research Scientist, Lawrence Berkeley National Laboratory
 - [Daan Camps](https://campsd.github.io/){:target="_blank"}, Researcher/Staff, Lawrence Berkeley National Laboratory
