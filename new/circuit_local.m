@@ -101,7 +101,7 @@ init = qpos(seed);
 
 psi = zeros(2^nbQubits,1);
 psi(init) = 1;
-T = 149;
+T = 5;
 p = zeros(2^nbQubits,T+1);
 p(:,1) = abs(psi).^2;
 
