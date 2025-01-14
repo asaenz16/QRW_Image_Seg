@@ -108,7 +108,7 @@ init = qpos(seed);
 psi = zeros(2^nbQubits,1);
 psi(init) = 1;
 %simulation runs up to time T
-T = 1;
+T = 5;
 %probability matrix, a list of probability distributions at each
 %t=1,2,...,T+1
 p = zeros(2^nbQubits,T+1);
@@ -156,3 +156,5 @@ ylabel("Time (iterations)");
 xlabel("Position of up spin");
 zlabel("Probability mass");
 toc;
+
+
